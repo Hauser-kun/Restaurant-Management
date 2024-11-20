@@ -36,8 +36,10 @@ class ProductResource extends Resource
                 TextInput::make('name')
                     ->required(),
                 TextInput::make('Mprice')
+                ->label('Mark Price')
                     ->required(),
                 TextInput::make('Sprice')
+                ->label('Selling Price')
                     ->required(),
                 TextInput::make('description')
                     ->nullable(),
@@ -73,7 +75,7 @@ class ProductResource extends Resource
         return $table
             ->query(function () {
                 return Product::whereHas('category', function ($query) {
-                    $query->where('category_id', Auth::user()->restaurant_id);
+                    $query->where('restaurant_id', Auth::user()->restaurant_id);
                 });
             })
             ->columns([

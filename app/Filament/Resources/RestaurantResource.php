@@ -50,7 +50,8 @@ class RestaurantResource extends Resource
                 TextInput::make('contact')
                     ->nullable(),
                 TextInput::make('pan')->integer(),
-                TextInput::make('vatPer')->integer(),
+                TextInput::make('vatPer')->integer()
+                ->default(0),
 
             ]);
     }
