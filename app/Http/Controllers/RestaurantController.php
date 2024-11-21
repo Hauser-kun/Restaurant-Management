@@ -8,6 +8,6 @@ use Illuminate\Http\Request;
 class RestaurantController extends Controller
 {
     public function info ($id) {
-        return Restaurant::where('id', $id)->with('categories', 'products')->get()->first();
+        return Restaurant::where('id', $id)->with('categories', 'products', 'tables')->get()->first();
     }
 }

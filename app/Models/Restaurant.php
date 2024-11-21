@@ -24,4 +24,8 @@ class Restaurant extends Model
     public function products () {
         return $this->hasManyThrough(Product::class, Category::class);
     } 
+
+    public function tables () {
+        return $this->hasMany(RTable::class);
+    } 
 }
