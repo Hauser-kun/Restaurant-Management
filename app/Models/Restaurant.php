@@ -15,4 +15,13 @@ class Restaurant extends Model
         'pan',
         'vatPer',
     ];
+
+
+    public function categories () {
+        return $this->hasMany(Category::class);
+    } 
+
+    public function products () {
+        return $this->hasManyThrough(Product::class, Category::class);
+    } 
 }
